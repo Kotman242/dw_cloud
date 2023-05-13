@@ -28,7 +28,6 @@ public class User {
     private String username;
 
     @Column(unique = true,
-            length = 30,
             name = "password")
     @Size(min = 4, max = 30)
     private String password;

@@ -24,12 +24,12 @@ public class File {
             nullable = false)
     private String name;
 
-    @Column(name = "name",
+    @Column(name = "path",
             nullable = false,
             unique = true)
     private String path;
 
-    @Column(name = "user_id",
+    @JoinColumn(name = "user_id",
             nullable = false)
     @ManyToOne
     private User user;
