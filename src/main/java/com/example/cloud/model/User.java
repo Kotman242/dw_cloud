@@ -25,7 +25,7 @@ public class User {
             unique = true,
             length = 100,
             name = "login")
-    private String name;
+    private String username;
 
     @Column(unique = true,
             length = 30,
@@ -38,11 +38,11 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return Objects.equals(name, user.name) && Objects.equals(password, user.password);
+        return Objects.equals(username, user.username) && Objects.equals(password, user.password);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, password);
+        return Objects.hash(username, password);
     }
 }
