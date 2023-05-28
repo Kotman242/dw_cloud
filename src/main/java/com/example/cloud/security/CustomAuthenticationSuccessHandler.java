@@ -1,6 +1,6 @@
 package com.example.cloud.security;
 
-import com.example.cloud.dto.AuthResponse;
+import com.example.cloud.dto.request.AuthResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

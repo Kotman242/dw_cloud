@@ -1,6 +1,6 @@
 package com.example.cloud.controller;
 
-import com.example.cloud.dto.LoginRequest;
+import com.example.cloud.dto.request.LoginRequest;
 
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;

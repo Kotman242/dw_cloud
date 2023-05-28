@@ -2,7 +2,9 @@ package com.example.cloud.service;
 
 import com.example.cloud.exception.SaveFileException;
 import com.example.cloud.model.CloudFile;
+import com.example.cloud.model.User;
 import com.example.cloud.repository.FileRepository;
+import com.example.cloud.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
@@ -19,6 +21,7 @@ import java.nio.file.Path;
 public class CloudService {
 
     private FileRepository fileRepository;
+    private UserRepository userRepository;
 
 
     @Value("${file.pathForSave}")
@@ -50,7 +53,7 @@ public class CloudService {
         fileRepository.save(CloudFile.builder()
                         .size(file.getSize())
                         .name(filename)
-                        .user(user)
+                        .user(userRepository.getByUsername(userName))
                         .path(newFile)
                 .build());
     }
