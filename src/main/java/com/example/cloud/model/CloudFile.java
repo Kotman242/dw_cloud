@@ -14,7 +14,7 @@ import java.util.Objects;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class File {
+public class CloudFile {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -29,6 +29,9 @@ public class File {
             unique = true)
     private String path;
 
+    @Column(name = "size")
+    private long size;
+
     @JoinColumn(name = "user_id",
             nullable = false)
     @ManyToOne
@@ -38,12 +41,12 @@ public class File {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        File file = (File) o;
-        return Objects.equals(name, file.name) && Objects.equals(path, file.path) && Objects.equals(user, file.user);
+        CloudFile file = (CloudFile) o;
+        return size == file.size && Objects.equals(name, file.name) && Objects.equals(path, file.path) && Objects.equals(user, file.user);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, path, user);
+        return Objects.hash(name, path, size, user);
     }
 }
